@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phanphum Prathumsuwan — Technology Consultant</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a1814;
+      --ink-muted: #6b6760;
+      --ink-faint: #b0ada8;
+      --paper: #f7f5f2;
+      --paper-warm: #ede9e3;
+      --accent: #c8622a;
+      --accent-light: #f0ddd1;
+      --accent-dark: #8f3f14;
+      --border: rgba(26, 24, 20, 0.1);
+      --border-strong: rgba(26, 24, 20, 0.2);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(247, 245, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 3rem;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 10rem 0 7rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 2px;
+      padding: 6px 14px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 580px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-photo-wrap {
+      width: 240px;
+      height: 300px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(200, 98, 42, 0.3);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--paper-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--ink-faint);
+    }
+
+    /* ─── VALUE PROPS ─── */
+    .props-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    .prop-card {
+      background: var(--paper);
+      padding: 2rem 1.75rem;
+    }
+
+    .prop-num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .prop-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .prop-sub {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-bio {
+      font-size: 1.02rem;
+      color: var(--ink-muted);
+      line-height: 1.85;
+    }
+
+    .about-bio strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-bio p+p {
+      margin-top: 1rem;
+    }
+
+    .about-sidebar {}
+
+    .lang-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lang-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .lang-flag {
+      font-size: 1.4rem;
+    }
+
+    .lang-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .lang-cert {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .lang-score {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+
+    /* ─── ENGAGEMENTS (was Experience) ─── */
+    .eng-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .eng-entry {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    .eng-entry:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .eng-date {
+      padding-top: 4px;
+    }
+
+    .eng-year {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink-faint);
+    }
+
+    .eng-range {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      margin-top: 2px;
+    }
+
+    .eng-content {}
+
+    .eng-role {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .eng-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .eng-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .eng-bullets li {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .eng-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 5px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      background: var(--paper-warm);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 3px 9px;
+    }
+
+    /* ─── CASE STUDIES (was Projects) ─── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .case-card {
+      background: var(--paper);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .case-card:hover {
+      background: #f2ede6;
+    }
+
+    .case-domain {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .case-name {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .case-problem {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .case-outcomes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .case-outcomes li {
+      font-size: 0.85rem;
+      color: var(--ink);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .case-outcomes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.75rem;
+      top: 2px;
+    }
+
+    .case-stack {
+      font-size: 0.77rem;
+      color: var(--ink-faint);
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .case-link {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .case-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── CAPABILITIES (was Skills) ─── */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .cap-group {}
+
+    .cap-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cap-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .cap-item {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    /* ─── CERTIFICATES ─── */
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cert-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      gap: 2rem;
+    }
+
+    .cert-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .cert-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .cert-issuer {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    .cert-meta {
+      text-align: right;
+    }
+
+    .cert-date {
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cert-link {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .cert-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── EDUCATION ─── */
+    .edu-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    .edu-date {
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+      text-align: right;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .contact-card {
+      background: var(--paper);
+      padding: 1.75rem 2rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: background 0.2s;
+    }
+
+    .contact-card:hover {
+      background: var(--accent-light);
+    }
+
+    .contact-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .contact-value {
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo-wrap {
+        display: none;
+      }
+
+      .props-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .eng-entry {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 4rem 0;
+      }
+
+      .cap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name">Phanphum P.</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#engagements">Engagements</a></li>
+        <li><a href="#cases">Case Studies</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero" id="hero" style="border-bottom:1px solid var(--border)">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-tag">Technology Consulting &mdash; Bangkok &amp; Remote</div>
+          <h1>Bridging <em>business problems</em><br>with technology solutions.</h1>
+          <p class="hero-sub">I'm Phanphum Prathumsuwan — a final-year Software Engineering graduate with hands-on
+            experience in system integration, AI evaluation, and end-to-end platform delivery. I help organisations
+            understand, design, and implement technology that works for real people and real operations.</p>
+          <div class="hero-actions">
+            <a href="mailto:phanphump2004@gmail.com" class="btn btn-primary">Get in touch</a>
+            <a href="assets/Resume_PhanphumPrathumsuwan.pdf" class="btn btn-outline" target="_blank"
+              rel="noopener noreferrer">Resume</a>
+            <a href="https://www.linkedin.com/in/phanphum-prathumsuwan/" class="btn btn-outline" target="_blank"
+              rel="noopener noreferrer">LinkedIn ↗</a>
+            <a href="https://github.com/pphum-prathum" class="btn btn-outline" target="_blank"
+              rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <img src="assets/me_darkgreen.jpg" alt="Phanphum Prathumsuwan"
+            onerror="this.parentNode.innerHTML='<div class=\'hero-photo-placeholder\'>PP</div>'">
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPS -->
+    <section id="about" style="padding-top:5rem;padding-bottom:5rem">
+      <div class="props-grid">
+        <div class="prop-card">
+          <div class="prop-num">3</div>
+          <div class="prop-label">International institutions</div>
+          <div class="prop-sub">Research and project delivery across Mahidol University, Tohoku University, and JAIST
+          </div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">7</div>
+          <div class="prop-label">LLMs benchmarked</div>
+          <div class="prop-sub">Built evaluation frameworks to assess production reliability and failure behaviour
+            across AI systems</div>
+        </div>
+        <div class="prop-card">
+          <div class="prop-num">4</div>
+          <div class="prop-label">Projects built end-to-end</div>
+          <div class="prop-sub">Requirements, design, implementation, and testing — across property management, public safety, education, and scientific infrastructure</div>
+        </div>
+      </div>
+
+      <p class="section-label">Profile</p>
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p><strong>I sit at the intersection of technology and business outcomes.</strong> My background in software
+            engineering gives me the depth to understand technical architecture, system constraints, and integration
+            complexity — while my experience working across cross-functional teams and international research labs has
+            shaped how I communicate, document, and deliver solutions to diverse stakeholders.</p>
+          <p>I've contributed to projects spanning dormitory management platforms, AI system reliability, observatory
+            control systems, and formal safety verification — each requiring me to translate between business
+            requirements and implementation realities. I'm equally comfortable in a requirements workshop and a code
+            review.</p>
+          <p>I'm open to roles in technical consulting, functional consulting, or hybrid positions that demand both
+            business acumen and engineering credibility.</p>
+        </div>
+        <div class="about-sidebar">
+          <div class="lang-row">
+            <div class="lang-flag">🇹🇭</div>
+            <div>
+              <div class="lang-name">Thai</div>
+              <div class="lang-cert">Native</div>
+            </div>
+          </div>
+          <div class="lang-row">
+            <div class="lang-flag">🇬🇧</div>
+            <div>
+              <div class="lang-name">English</div>
+              <div class="lang-cert">Fluent</div>
+              <div class="lang-score">IELTS 7.0 · TOEIC 895</div>
+            </div>
+          </div>
+          <div class="lang-row">
+            <div class="lang-flag">🇯🇵</div>
+            <div>
+              <div class="lang-name">Japanese</div>
+              <div class="lang-cert">Beginner</div>
+              <div class="lang-score">JLPT N5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGAGEMENTS -->
+    <section id="engagements">
+      <p class="section-label">Where I've contributed</p>
+      <h2>Engagements</h2>
+      <div class="eng-list">
+
+        <div class="eng-entry">
+          <div class="eng-date">
+            <div class="eng-year">2025–26</div>
+            <div class="eng-range">Aug 2025 – Apr 2026</div>
+          </div>
+          <div class="eng-content">
+            <div class="eng-role">Full-Stack Developer — DormiSpace</div>
+            <div class="eng-org">Dormitory Management Platform · Flutter + Spring Boot</div>
+            <ul class="eng-bullets">
+              <li>Mapped end-to-end landlord and tenant workflows — contract lifecycle, billing, maintenance, and
+                utility tracking — into a coherent system architecture serving two distinct user groups</li>
+              <li>Designed scalable API contracts for authentication, billing automation, and multi-tenant data
+                isolation, balancing business rules with technical constraints</li>
+              <li>Led frontend delivery from requirements to production, owning ~80% of 35 screens across dual portals
+              </li>
+              <li>Implemented OCR-based utility meter reading and Omise payment integration, reducing manual landlord
+                effort at month-end</li>
+            </ul>
+            <div class="tags"><span class="tag">System Design</span><span class="tag">API Architecture</span><span
+                class="tag">Workflow Automation</span><span class="tag">Multi-tenant Billing</span><span
+                class="tag">Spring Boot</span><span class="tag">Flutter</span><span class="tag">PostgreSQL</span></div>
+          </div>
+        </div>
+
+        <div class="eng-entry">
+          <div class="eng-date">
+            <div class="eng-year">2025</div>
+            <div class="eng-range">May – Aug 2025</div>
+          </div>
+          <div class="eng-content">
+            <div class="eng-role">Research Intern — ReaLearn Laboratory</div>
+            <div class="eng-org">Tohoku University, Japan</div>
+            <ul class="eng-bullets">
+              <li>Designed and built a benchmarking framework to evaluate production reliability and failure behaviour
+                across 7 large language models</li>
+              <li>Translated research objectives into automated testing workflows, surfacing failure patterns and
+                delivering structured insights to the lab team</li>
+              <li>Produced actionable analysis reports to guide AI product stability decisions — communicating technical
+                findings to a mixed academic audience</li>
+            </ul>
+            <div class="tags"><span class="tag">AI Evaluation</span><span class="tag">Benchmarking</span><span
+                class="tag">Requirements Analysis</span><span class="tag">Technical Reporting</span><span
+                class="tag">Python</span></div>
+          </div>
+        </div>
+
+        <div class="eng-entry">
+          <div class="eng-date">
+            <div class="eng-year">2024</div>
+            <div class="eng-range">Jun – Aug 2024</div>
+          </div>
+          <div class="eng-content">
+            <div class="eng-role">Research Intern — Ishii Laboratory</div>
+            <div class="eng-org">JAIST, Japan</div>
+            <ul class="eng-bullets">
+              <li>Applied formal verification techniques (Lustre/Kind2, Simulink/SLDV) to evaluate system correctness
+                and safety properties in critical infrastructure contexts</li>
+              <li>Translated system specifications across modelling platforms, identifying performance limitations and
+                informing architectural design decisions</li>
+              <li>Contributed technical documentation and presented findings to laboratory stakeholders</li>
+            </ul>
+            <div class="tags"><span class="tag">Formal Verification</span><span class="tag">System Safety</span><span
+                class="tag">Technical Documentation</span><span class="tag">Stakeholder Communication</span></div>
+          </div>
+        </div>
+
+        <div class="eng-entry">
+          <div class="eng-date">
+            <div class="eng-year">2024</div>
+            <div class="eng-range">Mar 2024</div>
+          </div>
+          <div class="eng-content">
+            <div class="eng-role">Participant — Mahidol AI Hackathon 2</div>
+            <div class="eng-org">Faculty of ICT, Mahidol University</div>
+            <ul class="eng-bullets">
+              <li>Identified a healthcare service problem and rapidly scoped an AI-based solution within a
+                cross-functional team under time constraints</li>
+              <li>Managed data preparation and model integration across the delivery pipeline</li>
+            </ul>
+            <div class="tags"><span class="tag">Healthcare</span><span class="tag">Problem Scoping</span><span
+                class="tag">AI Integration</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="cases">
+      <p class="section-label">What I've delivered</p>
+      <h2>Case Studies</h2>
+      <div class="cases-grid">
+
+        <div class="case-card">
+          <div class="case-domain">Property Management · Full-stack</div>
+          <div class="case-name">DormiSpace — Dormitory Management Platform</div>
+          <div class="case-problem"><strong>Problem:</strong> Small dormitory landlords managed contracts, billing, and
+            maintenance manually — error-prone, time-consuming, and opaque to tenants.</div>
+          <ul class="case-outcomes">
+            <li>Dual-portal system for landlords and tenants with role-based access and contract lifecycle management
+            </li>
+            <li>Automated monthly billing with OCR-powered utility meter reading — eliminating manual calculations</li>
+            <li>Digital contract signing, renewal workflows, and PDF generation</li>
+            <li>12 normalised database tables; CI/CD pipeline via GitHub Actions and Docker</li>
+          </ul>
+          <div class="case-stack">Stack: Flutter · Spring Boot · PostgreSQL · AWS S3 · Omise · Google Cloud Vision</div>
+          <a href="https://youtu.be/wn1L1ZACNqs" class="case-link" target="_blank"
+            rel="noopener noreferrer">Demo ↗</a>
+        </div>
+
+        <div class="case-card">
+          <div class="case-domain">Open Source · Software Testing</div>
+          <div class="case-name">JavaFlame Test Suite Extension</div>
+          <div class="case-problem"><strong>Problem:</strong> An open-source Java debugging tool (92 ⭐) lacked
+            systematic test coverage for its parser and matcher components, leaving edge cases and error paths
+            unverified.</div>
+          <ul class="case-outcomes">
+            <li>Personally designed 2 of 10 test suites using All-Combination (ACoC) and Pairwise (PWC) coverage
+              strategies</li>
+            <li>Applied formal input domain modelling to identify partitions, boundary conditions, and error paths</li>
+            <li>Contributed to a team effort covering 5 distinct coverage techniques across the full parser</li>
+          </ul>
+          <div class="case-stack">Stack: Java · JUnit · Input Domain Modelling · ACoC · PWC</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-domain">Public Safety</div>
+          <div class="case-name">GoodPoliz — Police Operations System</div>
+          <div class="case-problem"><strong>Problem:</strong> Police operations involving case management and incident
+            tracking required a structured, reliable system with verifiable correctness.</div>
+          <ul class="case-outcomes">
+            <li>Police operations system covering case management and incident tracking workflows</li>
+            <li>Owned full Flutter frontend — all screens and user journey flows</li>
+            <li>Reviewed backend test suite (JUnit + Mockito) and integration test architecture built by teammates</li>
+          </ul>
+          <div class="case-stack">Stack: Flutter · JUnit · Mockito</div>
+          <a href="https://github.com/pphum-prathum/poliz" class="case-link" target="_blank"
+            rel="noopener noreferrer">View on GitHub ↗</a>
+        </div>
+
+        <div class="case-card">
+          <div class="case-domain">Scientific Infrastructure · System Integration</div>
+          <div class="case-name">Gemini Telescope Control System</div>
+          <div class="case-problem"><strong>Problem:</strong> A legacy Observatory Control System lacked a modern
+            interface, making remote telescope operation cumbersome and inaccessible.</div>
+          <ul class="case-outcomes">
+            <li>UML-modelled middleware architecture bridging modern REST APIs with legacy OCS protocol</li>
+            <li>Spring Boot service layer translating HTTP API calls to legacy telescope commands</li>
+            <li>Real-time web control interface enabling accessible remote operation</li>
+          </ul>
+          <div class="case-stack">Stack: Spring Boot · REST API · HTML/CSS · UML</div>
+          <span class="case-link">🔒 Private repository</span>
+        </div>
+
+        <div class="case-card">
+          <div class="case-domain">Education Technology · Database Design</div>
+          <div class="case-name">Online Tutor Platform</div>
+          <div class="case-problem"><strong>Problem:</strong> Connecting tutors and students required a well-structured
+            data model capable of handling availability matching, session scheduling, and profile management at scale.
+          </div>
+          <ul class="case-outcomes">
+            <li>Normalised relational schema for tutor profiles, student records, sessions, and bookings</li>
+            <li>Optimised SQL queries for tutor search and real-time availability matching</li>
+            <li>Full project documentation and technical report available on request</li>
+          </ul>
+          <div class="case-stack">Stack: PostgreSQL · SQL · Database Design</div>
+          <a href="https://github.com/pphum-prathum/peregrine" class="case-link" target="_blank"
+            rel="noopener noreferrer">View on GitHub ↗</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <p class="section-label">What I bring</p>
+      <h2>Capabilities</h2>
+      <div class="cap-grid">
+        <div class="cap-group">
+          <div class="cap-title">Consulting &amp; Analysis</div>
+          <div class="cap-items">
+            <div class="cap-item">Requirements gathering &amp; analysis</div>
+            <div class="cap-item">Business process mapping</div>
+            <div class="cap-item">System architecture design</div>
+            <div class="cap-item">Stakeholder communication</div>
+            <div class="cap-item">Technical documentation</div>
+            <div class="cap-item">AI system evaluation</div>
+          </div>
+        </div>
+        <div class="cap-group">
+          <div class="cap-title">Technical Delivery</div>
+          <div class="cap-items">
+            <div class="cap-item">Full-stack development (Flutter, Spring Boot)</div>
+            <div class="cap-item">RESTful API design &amp; integration</div>
+            <div class="cap-item">Database design (PostgreSQL, MySQL)</div>
+            <div class="cap-item">CI/CD &amp; DevOps (GitHub Actions, Docker)</div>
+            <div class="cap-item">Cloud services (AWS EC2, S3)</div>
+            <div class="cap-item">Testing &amp; QA (JUnit, JMeter, Robot Framework)</div>
+          </div>
+        </div>
+        <div class="cap-group">
+          <div class="cap-title">Domain Knowledge</div>
+          <div class="cap-items">
+            <div class="cap-item">ERP fundamentals (SAP certified)</div>
+            <div class="cap-item">Property &amp; lease management</div>
+            <div class="cap-item">AI &amp; LLM system behaviour</div>
+            <div class="cap-item">Formal verification &amp; system safety</div>
+            <div class="cap-item">Healthcare systems (AI hackathon)</div>
+            <div class="cap-item">Scientific infrastructure integration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label">Where I studied</p>
+      <h2>Education</h2>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">B.Sc. Software Engineering</div>
+          <div class="edu-school">Mahidol University — Faculty of ICT</div>
+        </div>
+        <div class="edu-date">Aug 2022 – May 2026</div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <p class="section-label">Credentials</p>
+      <h2>Certificates</h2>
+      <div class="cert-list">
+        <div class="cert-row">
+          <div>
+            <div class="cert-name">SAP Professional Fundamentals</div>
+            <div class="cert-issuer">SAP · ERP · Project Management</div>
+          </div>
+          <div class="cert-meta">
+            <span class="cert-date">May 2026</span>
+            <a href="https://coursera.org/share/24f2d873a9547e1816d31d70a9e3e43e" class="cert-link" target="_blank"
+              rel="noopener noreferrer">View credential ↗</a>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-name">Using Python to Interact with the Operating System</div>
+            <div class="cert-issuer">Google · Python · Automation</div>
+          </div>
+          <div class="cert-meta">
+            <span class="cert-date">October 2024</span>
+            <a href="https://coursera.org/share/366343c8c2c40b0744d956b2ee7395b8" class="cert-link" target="_blank"
+              rel="noopener noreferrer">View credential ↗</a>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div>
+            <div class="cert-name">Data Analysis with R Programming</div>
+            <div class="cert-issuer">Google · Data Analysis · R</div>
+          </div>
+          <div class="cert-meta">
+            <span class="cert-date">April 2023</span>
+            <a href="https://coursera.org/share/1bd33cc01cab38b3e472122cb4ba034b" class="cert-link" target="_blank"
+              rel="noopener noreferrer">View credential ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="border-bottom:none">
+      <p class="section-label">Say hello</p>
+      <h2>Let's talk.</h2>
+      <p style="color:var(--ink-muted);font-size:0.95rem;margin-bottom:2.5rem;max-width:520px">Open to consulting,
+        full-stack, and technology roles in Bangkok or remote. I'd love to hear what you're working on.</p>
+      <div class="contact-grid">
+        <a href="mailto:phanphump2004@gmail.com" class="contact-card">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">phanphump2004@gmail.com</div>
+        </a>
+        <a href="tel:+66805952200" class="contact-card">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">080-595-2200</div>
+        </a>
+        <a href="https://www.linkedin.com/in/phanphum-prathumsuwan/" class="contact-card" target="_blank"
+          rel="noopener noreferrer">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">phanphum-prathumsuwan ↗</div>
+        </a>
+        <a href="https://github.com/pphum-prathum" class="contact-card" target="_blank" rel="noopener noreferrer">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">pphum-prathum ↗</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Phanphum Prathumsuwan · Bangkok, Thailand</p>
+    <p style="margin-top:6px">
+      <a href="https://pphum-prathum.github.io/portfolio"
+        style="color:var(--ink-faint);font-size:0.75rem;text-decoration:none;">
+        → Also view engineering portfolio
+      </a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
