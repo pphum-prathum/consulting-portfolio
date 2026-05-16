@@ -8,8 +8,8 @@
 
 :root {
     --ink: #1a1814;
-    --ink-muted: #6b6760;
-    --ink-faint: #b0ada8;
+    --ink-muted: #413e3a;
+    --ink-faint: #53524f;
     --paper: #f7f5f2;
     --paper-warm: #ede9e3;
     --accent: #c8622a;
@@ -42,6 +42,7 @@ nav {
     right: 0;
     z-index: 100;
     background: rgba(247, 245, 242, 0.92);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
 }
