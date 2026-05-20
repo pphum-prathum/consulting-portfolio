@@ -16,6 +16,13 @@
   <nav>
     <div class="nav-inner">
       <span class="nav-name">Phanphum P.</span>
+
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#engagements">Engagements</a></li>
@@ -24,6 +31,7 @@
         <li><a href="#capabilities">Capabilities</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="https://pphum-prathum.github.io/portfolio" class="nav-engineering" target="_blank" rel="noopener noreferrer">Engineering Portfolio</a></li>
       </ul>
     </div>
   </nav>
@@ -452,6 +460,25 @@
       </a>
     </p>
   </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
 </body>
 
